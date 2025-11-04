@@ -44,20 +44,24 @@ Additional JavaScript features will include:
 ## **Mockup of Webpages**
 
 ### **1. Homepage**
-![Homepage](https://i.pinimg.com/736x/ae/76/f4/ae76f41fa6bd3ec22fd8f7d914e7da03.jpg)
+![Homepage](https://i.pinimg.com/736x/56/8c/e0/568ce0ea584bb7cf1cbcc62f5541a54f.jpg)
 
 ### **2. Members**
-![Members](https://i.pinimg.com/736x/c1/64/49/c16449acec051c2ebcae1e81e8c894cf.jpg)
-![Members](https://i.pinimg.com/736x/81/29/47/812947e319abb49a311df4ba7d0eff03.jpg)
-![Members](https://i.pinimg.com/736x/8a/3a/6a/8a3a6a79702ab9b04f2b6e5c5691f6ae.jpg)
+![Members](https://i.pinimg.com/736x/6c/74/65/6c746519026584b4c2c4aff3aa17116e.jpg)
+![Members](https://i.pinimg.com/736x/5c/3a/2f/5c3a2feaa7ebb88c246fab7b370213e0.jpg)
+![Members](https://i.pinimg.com/736x/9e/50/eb/9e50eb48b636ff675e2c1fd4b0cede4b.jpg)
+
+### **3. Boys Planet**
+![Boys Planet](https://i.pinimg.com/736x/d8/2c/91/d82c9153164d0c72f425b7c0b27db4b8.jpg)
 
 ### **4. Music**
-![Music](https://i.pinimg.com/736x/fc/b2/b1/fcb2b1ec78e1e4bead5ac055fc5d77f2.jpg)
-![Music](https://i.pinimg.com/736x/75/3e/76/753e767900da190628162b9040e5854e.jpg)
+![Music](https://i.pinimg.com/736x/d8/a5/8b/d8a58b532267dc75388453f87cef49f5.jpg)
+![Music](https://i.pinimg.com/736x/bf/99/4f/bf994f034f18c9abf4909151b4d246b1.jpg)
+![Music](https://i.pinimg.com/736x/f6/91/70/f69170f3a98a5b8be177ecec0274c58a.jpg)
 
 ### **5. Merch & Albums**
-![Merch & Albums](https://i.pinimg.com/736x/85/d3/d6/85d3d6dfbf9b8b60ed4cd765246caf02.jpg)
+![Merch & Albums](https://i.pinimg.com/736x/3a/4b/a6/3a4ba6f39ac207a2a651e17879414c9d.jpg)
 
 ### **6. Quiz: Find Your ZB1 Match**
-![Quiz](https://i.pinimg.com/736x/0c/5a/3d/0c5a3d4c097ecb75e18cc8582afe1c25.jpg)
+![Quiz](https://i.pinimg.com/736x/3a/b2/4f/3ab24f295529add93fd0120d00d9a7f7.jpg)
 
