@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> ZB1 Zone </title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* NEW MATCHING BACKGROUND */
+        .background-scroller {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            
+            background: linear-gradient(
+                to bottom, 
+                #8baccd 0%,      
+                #3498db 40%,     
+                #69addd 70%,     
+                #b0c4de 100%     
+            );
+        }
+
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 20px 0;
+            font-family: monospace;
+            color: white;
+        }
+
+        .main-container {
+            max-width: 95vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            margin-bottom: 10px;
+        }
+
+        .title-icon {
+            height: 50px;
+            width: 50px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .header-section img:first-child {
+            background: transparent;
+            border-radius: 10px; 
+        }
+        
+        .header-section img:last-child {
+             box-shadow: none;
+             border-radius: 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 40px;
+            font-family: monospace;
+            margin: 0;
+            white-space: nowrap;
+            flex: 1;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); 
+        }
+
+        h3 {
+            color: white; 
+            font-size: 60px;
+            font-family: monospace;
+            margin: 10px 0 0 0;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: white;
+            font-size: 25px;
+            margin-top: 10px;
+            font-family: monospace;
+            text-align: left;
+            max-width: 95vw;
+            margin: 10px auto;
+            padding: 0 20px; 
+        }
+
+        p {
+            color: white; 
+            font-size: 30px;
+            font-family: monospace;
+            margin: 10px auto 10px; 
+            text-align: justify;
+            max-width: 95vw;
+            padding: 0 20px; 
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); 
+        }
+
+        #media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .media-img {
+            border: 10px solid white; 
+            border-radius: 20px;
+            height: 530px;
+            width: 100%; 
+            display: block;
+            margin: 30px auto 20px;
+            box-shadow: 0 2px 10px white;
+        }
+
+        #pages-section {
+            padding: 20px 0 60px;
+        }
+
+        #pages {
+            display: flex;
+            justify-content: space-around; 
+            gap: 20px; 
+            margin-top: 30px;
+            flex-wrap: nowrap; 
+            max-width: 100%; 
+            padding: 0 20px;
+        }
+
+        .page-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            width: 200px;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .page-image {
+            width: 200px; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            margin-bottom: 10px;
+            border: 3px solid white; 
+            transition: transform 0.25s ease;
+        }
+
+        .page-item:hover .page-image {
+            transform: scale(1.05);
+        }
+
+        .page-label {
+            color: white; 
+            font-size: 30px;
+            font-family: monospace;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #pages-section p {
+            color: white; 
+            text-align: center;
+            font-size: 20px;
+            padding-bottom: 20px;
+            max-width: 100%;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); 
+        }
+
+        #bottom-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; 
+            padding: 40px 20px 20px;
+            margin: 50px auto 0;
+            color: white; 
+            font-size: 16px;
+            font-family: monospace;
+        }
+
+        #contacts, #sources, #copyright {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        #contacts, #sources {
+            flex-basis: 30%; 
+        }
+
+        #copyright {
+            flex-grow: 1; 
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer {
+            display: none;
+        }
+
+        @media (max-width: 1200px) {
+            #pages {
+                flex-wrap: wrap; 
+                justify-content: center;
+                gap: 50px;
+            }
+            .page-item {
+                width: 200px;
+            }
+            .page-image {
+                width: 200px;
+                height: 200px;
+            }
+            .media-img {
+                width: 100%;
+                height: auto;
+            }
+            #bottom-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            #contacts, #sources, #copyright {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- NEW Gradient Background -->
+<div class="background-scroller"></div>
+
+<div class="header-section main-container">
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="title-icon" alt="Left icon">
+    <h1>ZB1 Zone</h1>
+    <img src="https://i.pinimg.com/originals/39/10/7b/39107b22d17464197c36a282f93933c0.png" class="title-icon" alt="ZB1 Logo">
+</div>
+
+<h3 class="main-container"> Your All-Access Pass to</h3>
+<h3 class="main-container">ZEROBASEONE</h3>
+
+<div id="media" class="main-container">
+    <img src="https://i.pinimg.com/1200x/89/ed/fc/89edfca87b4befa929bc0edf030ddf5a.jpg" alt="zb1 group photo" class="media-img"/>
+</div>
+
+<h2 class="main-container"> Information </h2>
+<p class="main-container">
+ZEROBASEONE (Korean: 제로베이스원; Japanese: ゼロベースワン; also shortened to ZB1) is a nine-member multinational project boy group under WAKEONE. Formed through Mnet's reality survival show Boys Planet, they made their debut on July 10, 2023 with their first mini album Youth in the Shade.
+They will be active for two and a half years on a special contract before it ends sometime in March 2026. The meaning behind their name is "the journey of nine trainees to complete as one after debut".
+</p>
+
+<div id="pages-section" class="main-container">
+    <div id="pages">
+        
+        <a href="https://ysasalvador.github.io/CS3_1stQtrPortfolio/public/2Q1GStrontiumSalvador.html" class="page-item">
+            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
+            <p class="page-label">Members</p>
+        </a>
+
+        <a href="#" class="page-item">
+            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
+            <p class="page-label">Music</p>
+        </a>
+
+        <a href="#" class="page-item">
+            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
+            <p class="page-label">Boys Planet</p>
+        </a>
+
+        <a href="#" class="page-item">
+            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
+            <p class="page-label">Merch & Albums</p>
+        </a>
+
+        <a href="#" class="page-item">
+            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
+            <p class="page-label">Quiz</p>
+        </a>
+
+    </div>
+</div>
+
+<div id="bottom-info" class="main-container">
+    <div id="contacts">
+        <h4>Contact Us</h4>
+        <h4>b2029</h4>
+        <h4>b2029</h4>
+    </div>
+    
+    <div id="copyright">
+        <p>© Ysabelle Salvador, Patricia Santos</p>
+    </div>
+    
+    <div id="sources">
+        <h4>Sources</h4>
+        <h4>Lorem ipsum</h4>
+        <h4>Social Media</h4>
+        <h4>Lorem ipsum</h4>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> ZB1 Zone </title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* --- New Sidebar Styles Start --- */
+        
+        /* The Sidebar Menu Itself */
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hidden off-screen to the left */
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.85); /* Dark semi-transparent background */
+            z-index: 1000; /* Ensure it's on top of everything */
+            transition: left 0.3s ease; /* Animation for sliding */
+            padding-top: 80px; /* Space for the header/toggle icon */
+        }
+
+        #sidebar.active {
+            left: 0; /* Slide into view */
+        }
+        
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #sidebar li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: monospace;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            transition: background 0.2s;
+        }
+
+        #sidebar li a:hover {
+            background-color: #3498db; /* Blue highlight on hover */
+        }
+
+        /* Toggle Button Styles (Hamburger Icon) */
+        #sidebar-toggle {
+            position: fixed;
+            top: 20px; /* Positioning in the top left corner */
+            left: 20px;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 1001; /* Above the sidebar */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #sidebar-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 9px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Toggle Button Animation for 'X' */
+        #sidebar-toggle.active {
+            transform: rotate(360deg); /* Simple spin effect */
+        }
+
+        #sidebar-toggle.active span:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+
+        #sidebar-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #sidebar-toggle.active span:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+        
+        /* --- New Sidebar Styles End --- */
+        
+        .background-scroller {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+            background: linear-gradient(
+                to bottom,
+                #8baccd 0%,
+                #3498db 40%,
+                #69addd 70%,
+                #b0c4de 100%
+            );
+        }
+
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 20px 0;
+            font-family: monospace;
+            color: white;
+        }
+
+        .main-container {
+            max-width: 95vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            margin-bottom: 10px;
+        }
+
+        .title-icon {
+            height: 50px;
+            width: 50px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* --- HEADER FIX: Ensures icons are fully transparent and borderless --- */
+        .header-section img:first-child,
+        .header-section img:last-child {
+            background: transparent;
+            border-radius: 0; /* Ensures no rounded border residue */
+            box-shadow: none; /* Removed shadow */
+            border: none;
+        }
+        /* -------------------------------------------------------------------- */
+
+        h1 {
+            color: white;
+            font-size: 40px;
+            font-family: monospace;
+            margin: 0;
+            white-space: nowrap;
+            flex: 1;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+        }
+
+        h3 {
+            color: white;
+            font-size: 60px;
+            font-family: monospace;
+            margin: 10px 0 0 0;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: white;
+            font-size: 25px;
+            margin-top: 10px;
+            font-family: monospace;
+            text-align: left;
+            max-width: 95vw;
+            margin: 10px auto;
+            padding: 0 20px;
+        }
+
+        p {
+            color: white;
+            font-size: 30px;
+            font-family: monospace;
+            margin: 10px auto; 
+            margin-bottom: 40px; 
+            text-align: justify;
+            max-width: 95vw;
+            padding: 0 20px;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+        }
+
+        #media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .media-img {
+            border: 10px solid white;
+            border-radius: 20px;
+            height: auto; 
+            max-height: 530px; 
+            width: 100%; 
+            display: block;
+            margin: 30px auto 20px;
+            box-shadow: 0 2px 10px white;
+            object-fit: cover; 
+        }
+
+        #videos-section > div {
+            position: relative; 
+            margin-bottom: 30px;
+        }
+
+        .video-carousel {
+            display: flex; 
+            overflow-x: scroll; 
+            scroll-snap-type: x mandatory; 
+            gap: 20px; 
+            padding: 10px 20px 20px; 
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+        }
+
+        .video-carousel::-webkit-scrollbar {
+            display: none; 
+        }
+
+        .video-container {
+            flex: 0 0 auto; 
+            width: 90vw; 
+            max-width: 560px; 
+            height: 315px; 
+            scroll-snap-align: center; 
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%; 
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none; 
+            z-index: 10;
+        }
+
+        .carousel-nav button {
+            pointer-events: auto; 
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 11;
+            outline: none;
+            transition: background 0.3s;
+            border-radius: 50%; 
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            text-shadow: 0 0 5px black;
+        }
+
+        .carousel-nav button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-nav .prev {
+            margin-left: 20px; 
+        }
+
+        .carousel-nav .next {
+            margin-right: 20px; 
+        }
+
+
+        #pages-section {
+            padding: 20px 0 60px;
+        }
+
+        #pages {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: nowrap;
+            max-width: 100%;
+            padding: 0 20px;
+        }
+
+        .page-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            width: 200px;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .page-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 3px solid white;
+            transition: transform 0.25s ease;
+        }
+
+        .page-item:hover .page-image {
+            transform: scale(1.05);
+        }
+
+        .page-label {
+            color: white;
+            font-size: 30px;
+            font-family: monospace;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #pages-section p {
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            padding-bottom: 20px;
+            max-width: 100%;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+        }
+        
+        #bottom-info {
+            display: flex;
+            justify-content: space-around; 
+            align-items: flex-start;
+            padding: 40px 20px;
+            margin: 50px auto 0;
+            color: white;
+            font-family: monospace;
+            border-top: 1px solid rgba(255, 255, 255, 0.3); 
+        }
+
+        #contacts, #sources {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            padding: 0 10px;
+            flex-basis: 30%; 
+        }
+        
+        #contacts h4, #sources h4 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #contacts h4:not(:first-child), #sources h4:not(:first-child) {
+            font-weight: normal;
+            font-size: 14px;
+            margin-bottom: 2px;
+            opacity: 0.8;
+        }
+        
+        #copyright {
+            flex-basis: 30%;
+            text-align: center;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+        }
+
+        #copyright p {
+            font-size: 14px;
+            margin: 0;
+            text-align: center;
+            padding: 0;
+        }
+
+        footer {
+            display: none;
+        }
+
+        @media (max-width: 1200px) {
+            #pages {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 50px;
+            }
+            .page-item {
+                width: 200px;
+            }
+            .page-image {
+                width: 200px;
+                height: 200px;
+            }
+            .media-img {
+                width: 100%;
+                height: auto;
+            }
+            #bottom-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            #contacts, #sources, #copyright {
+                text-align: center;
+                margin-bottom: 20px;
+                width: 100%; 
+                padding: 0 20px;
+            }
+            #contacts h4, #sources h4, #copyright p {
+                text-align: center;
+            }
+            .video-container {
+                 width: 85vw; 
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+<div id="sidebar-toggle" onclick="toggleSidebar()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<nav id="sidebar">
+    <ul>
+        <li><a href="#">Homepage</a></li>
+        <li><a href="#iconicperf">Members</a></li>
+        <li><a href="#dualposition">BoysPlanet</a></li>
+        <li><a href="#artistbattle">Music</a></li>
+        <li><a href="#finaltop9">Merch and Albums</a></li>
+        <li><a href="#bottom-info"> Quiz </a></li>
+    </ul>
+</nav>
+<div class="background-scroller"></div>
+
+<div class="header-section main-container">
+    <h1>ZB1 Zone</h1>
+    <img src="https://i.pinimg.com/736x/22/93/1f/22931fa861ccf35ae1c109e82261dfe1.jpg" class="title-icon" alt="ZB1 Logo">
+</div>
+
+<h3 class="main-container"> Boys Planet</h3>
+
+<div id="media" class="main-container">
+    <img src="https://i.pinimg.com/736x/5e/5d/8e/5e5d8eb191e1c413ec55f4bc832b0261.jpg" alt="bp" class="media-img"/>
+</div>
+
+<h2 class="main-container"> Information </h2>
+<p class="main-container"> Boys Planet (보이즈 플래닛) is a survival show created by Mnet. A male version of Girls Planet 999, it premiered on February 2, 2023.
+The show aired every Thursday at 8:50 PM (KST) with 12 episodes in total. It ended on April 20 with the announcement of the nine members of the boy group ZEROBASEONE.</p>
+
+<div id="videos-section" class="main-container">
+
+    <div id="iconicperf">
+        <h2 class="main-container"> K vs G Group Battle </h2>
+        
+        <div class="carousel-nav">
+            <button class="prev" onclick="scrollCarousel('iconicperf-carousel', -1)">&lt;</button>
+            <button class="next" onclick="scrollCarousel('iconicperf-carousel', 1)">&gt;</button>
+        </div>
+        
+        <div class="video-carousel" id="iconicperf-carousel">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/jKtFwtnZOVk?si=6ebZTmFrZcyU3uWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/D-KMjc7M8Sc?si=uT2_KPyrEHhGIk7W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/P434Ti99d4g?si=hTsDwFelak4n8GNI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/GT-5GS5q2xk?si=bGX6cA1DQ8hCHW7K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/wnEF95MS_Zs?si=fYk5Ry7q3SqNhCvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/DrXSvXZG2Xk?si=H7GyjHcbTQoG7vT5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/chjU9dKzViA?si=f3Mv_R1GG3328PUK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/nfgqkCrQqK0?si=yfYpONa4_-extMXN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/0aubQeFH4dg?si=irY8zVo6-TFgqT78" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/3ziAgxHDOrw?si=vT2KpthBFzxssbel" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/OxM6A3IqBx4?si=rdz8HGbTfmGy-z1K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/IURvaWWIP5E?si=Mi1X8gAtn69iQ7X1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="dualposition">
+        <h2 class="main-container"> Dual Position Battle </h2>
+        
+        <div class="carousel-nav">
+            <button class="prev" onclick="scrollCarousel('dualposition-carousel', -1)">&lt;</button>
+            <button class="next" onclick="scrollCarousel('dualposition-carousel', 1)">&gt;</button>
+        </div>
+        
+        <div class="video-carousel" id="dualposition-carousel">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/-O5B8sOUcpQ?si=jXj-zFvz4FzQ-c9S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/R9IhOSl4uG4?si=gVlch8cDlZNw7s3w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/uNwJCnKLcPE?si=_atjMomQGn1dPiz1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YWuM_0J7934?si=kQb2SI9uF-W1bJYZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/gO044Odww3E?si=VtmVfnSzSXvvV2m_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/B7N3hlOkon4?si=1l2mPBDlYWz-GDp-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/MnZQ-2LEbLo?si=TQA8wxs7fnnWL-Tx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/inL40p4HN8M?si=MTLMDrRPo6xPZBff" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/op8vWXErDoQ?si=TALNgdoFZYrRDEKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/rflWdYjORgU?si=myK8sZu80ksX1jk8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/oJWST1TvPdQ?si=27nb0m4KjtHdAIi5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="artistbattle">
+        <h2 class="main-container"> Artist Battle </h2>
+        
+        <div class="carousel-nav">
+            <button class="prev" onclick="scrollCarousel('artistbattle-carousel', -1)">&lt;</button>
+            <button class="next" onclick="scrollCarousel('artistbattle-carousel', 1)">&gt;</button>
+        </div>
+        
+        <div class="video-carousel" id="artistbattle-carousel">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/7Ahe45dUaMo?si=8n2381vAkWN0mDFJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/QTLgJS7Tuds?si=2c8jv0Qfm2kZV6F2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/jkemczUyhW4?si=mHfbf9tPtLlrNv-7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/v6SYeN7hIHQ?si=tfwNFZxl2zYJxxst" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/0kVmkicw0-E?si=RWy2saQHxpJ-B1aI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="finaltop9">
+        <h2 class="main-container"> Final TOP9 Battle</h2>
+        
+        <div class="carousel-nav">
+            <button class="prev" onclick="scrollCarousel('finaltop9-carousel', -1)">&lt;</button>
+            <button class="next" onclick="scrollCarousel('finaltop9-carousel', 1)">&gt;</button>
+        </div>
+        
+        <div class="video-carousel" id="finaltop9-carousel">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ZVeQ-Ode1ss?si=Bq79S-SpBvZ5ZteB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/FoRAxERsLfc?si=5Ucdq0RwfpeCMlLW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/-S-RqXTuCfk?si=87zKPZXsG8IGXRiU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YrrufMk1sEc?si=crwIpLRE6S1YBCtx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="bottom-info" class="main-container">
+    <div id="contacts">
+        <h4>Contact Us</h4>
+        <h4>b2029 (Placeholder)</h4>
+        <h4>b2029 (Placeholder)</h4>
+    </div>
+
+    <div id="copyright">
+        <p>© Ysabelle Salvador, Patricia Santos</p>
+    </div>
+
+    <div id="sources">
+        <h4>Sources</h4>
+        <h4>Lorem ipsum (Placeholder)</h4>
+        <h4>Social Media (Placeholder)</h4>
+        <h4>Lorem ipsum (Placeholder)</h4>
+    </div>
+</div>
+
+<script>
+    // *******************************************************************
+    // NEW: Function to toggle the sidebar's open/close state
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const toggle = document.getElementById('sidebar-toggle');
+        sidebar.classList.toggle('active');
+        toggle.classList.toggle('active');
+    }
+    // *******************************************************************
+    
+    function scrollCarousel(carouselId, direction) {
+        const carousel = document.getElementById(carouselId);
+        if (!carousel) return;
+
+        // Find the first video container inside the carousel to determine the scroll width
+        const videoContainer = carousel.querySelector('.video-container');
+        if (!videoContainer) return;
+
+        // Calculate the width of one item plus the gap (20px)
+        const itemWidth = videoContainer.offsetWidth + 20;
+        
+        const scrollAmount = itemWidth * direction;
+
+        carousel.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+</body>
+</html>
