@@ -7,6 +7,83 @@
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
     
     <style>
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; 
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.85); 
+            z-index: 1000; 
+            transition: left 0.3s ease; 
+            padding-top: 80px; 
+        }
+
+        #sidebar.active {
+            left: 0; 
+        }
+
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #sidebar li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: monospace;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            transition: background 0.2s;
+        }
+
+        #sidebar li a:hover {
+            background-color: #3498db; 
+        }
+
+
+        #sidebar-toggle {
+            position: fixed;
+            top: 20px; 
+            left: 20px;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 1001; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #sidebar-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 9px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #sidebar-toggle.active {
+            transform: rotate(360deg); 
+        }
+
+        #sidebar-toggle.active span:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+
+        #sidebar-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #sidebar-toggle.active span:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
         * {
             box-sizing: border-box;
         }
@@ -244,14 +321,28 @@
     </style>
 </head>
 <body>
+<div id="sidebar-toggle" onclick="toggleSidebar()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
+<nav id="sidebar">
+    <ul>
+        <li><a href="Homepage.html">Homepage</a></li>
+        <li><a href="Members.html">Members</a></li>
+        <li><a href="BoysPlanet.html">BoysPlanet</a></li>
+        <li><a href="Music.html">Music</a></li>
+        <li><a href="MerchandAlbums.html">Merch and Albums</a></li>
+        <li><a href="Quiz.html"> Quiz </a></li>
+    </ul>
+</nav>
 <!-- NEW Gradient Background -->
 <div class="background-scroller"></div>
 
 <div class="header-section main-container">
-    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="title-icon" alt="Left icon">
     <h1>ZB1 Zone</h1>
-    <img src="https://i.pinimg.com/originals/39/10/7b/39107b22d17464197c36a282f93933c0.png" class="title-icon" alt="ZB1 Logo">
+    <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
 </div>
 
 <h3 class="main-container"> Your All-Access Pass to</h3>
@@ -319,3 +410,11 @@ They will be active for two and a half years on a special contract before it end
 
 </body>
 </html>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const toggle = document.getElementById('sidebar-toggle');
+        sidebar.classList.toggle('active');
+        toggle.classList.toggle('active');
+    }
+</script>

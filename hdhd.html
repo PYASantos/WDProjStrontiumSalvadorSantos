@@ -108,6 +108,22 @@
         );
     }
     
+    /* --- NEW LOGO STYLES (Fixed Top Right) --- */
+    #logo-icon {
+        position: fixed;
+        top: 15px; /* Adjust vertical position */
+        right: 20px; /* Adjust horizontal position */
+        width: 45px; /* Slightly bigger than the 30px toggle bars */
+        height: 45px;
+        z-index: 1001; /* Ensure it stays on top */
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        object-fit: contain; /* ensures logo scales nicely */
+    }
+    /* ------------------------------------------- */
+
     .header-section, h3 {
         color: #fafafa; 
     }
@@ -216,19 +232,37 @@
         margin: 0 auto;
         padding: 0 15px; 
     }
-
+    
+    /* Clean up old header-section styling */
     .header-section {
+        display: block; 
         text-align: center;
         padding: 20px 0;
+    }
+    
+    /* Hide the old title icon class as we use the fixed one now */
+    .title-icon {
+        display: none;
+    }
+
+    h1 {
+        color: white;
+        font-size: 40px;
+        font-family: monospace;
+        margin: 0;
+        white-space: nowrap;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); 
+        padding-top: 10px; 
     }
 
     h3 {
         text-align: center;
         font-size: 60px; 
         margin-top: 20px; 
-        margin-bottom: 80px; /* FIXED: Increased from 20px to 80px for bigger space between "Members" and first profile */
+        margin-bottom: 80px; 
     }
-    /* Add space between "Members" heading and the first member (Hanbin) */
+    
+/* Add space between "Members" heading and the first member (Hanbin) */
 #members-section {
     margin-top: 40px; 
 }
@@ -264,11 +298,12 @@
 </nav>
 <div class="background-scroller"></div>
 
-<div class="header-section main-container">
-        <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
+<img id="logo-icon" src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" alt="ZB1 Logo">
 
+
+<div class="header-section main-container">
     <h1>ZB1 Zone</h1>
-</div>
+    </div>
 
 <h3 class="main-container"> Members </h3>
 

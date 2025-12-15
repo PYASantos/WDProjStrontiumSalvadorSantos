@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -17,17 +18,17 @@
         #sidebar {
             position: fixed;
             top: 0;
-            left: -250px; /* Hidden off-screen to the left */
+            left: -250px; 
             width: 250px;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.85); /* Dark semi-transparent background */
-            z-index: 1000; /* Ensure it's on top of everything */
-            transition: left 0.3s ease; /* Animation for sliding */
-            padding-top: 80px; /* Space for the header/toggle icon */
+            background-color: rgba(0, 0, 0, 0.85); 
+            z-index: 1000; 
+            transition: left 0.3s ease; 
+            padding-top: 80px; 
         }
 
         #sidebar.active {
-            left: 0; /* Slide into view */
+            left: 0; 
         }
         
         #sidebar ul {
@@ -49,18 +50,18 @@
         }
 
         #sidebar li a:hover {
-            background-color: #3498db; /* Blue highlight on hover */
+            background-color: #3498db; 
         }
 
-        /* Toggle Button Styles (Hamburger Icon) */
+        
         #sidebar-toggle {
             position: fixed;
-            top: 20px; /* Positioning in the top left corner */
+            top: 20px; 
             left: 20px;
             width: 30px;
             height: 25px;
             cursor: pointer;
-            z-index: 1001; /* Above the sidebar */
+            z-index: 1001; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -76,9 +77,8 @@
             transition: all 0.3s ease-in-out;
         }
 
-        /* Toggle Button Animation for 'X' */
         #sidebar-toggle.active {
-            transform: rotate(360deg); /* Simple spin effect */
+            transform: rotate(360deg); 
         }
 
         #sidebar-toggle.active span:nth-child(1) {
@@ -448,19 +448,19 @@
 
 <nav id="sidebar">
     <ul>
-        <li><a href="#">Homepage</a></li>
-        <li><a href="#iconicperf">Members</a></li>
-        <li><a href="#dualposition">BoysPlanet</a></li>
-        <li><a href="#artistbattle">Music</a></li>
-        <li><a href="#finaltop9">Merch and Albums</a></li>
-        <li><a href="#bottom-info"> Quiz </a></li>
+        <li><a href="Homepage.html">Homepage</a></li>
+        <li><a href="Members.html">Members</a></li>
+        <li><a href="BoysPlanet.html">BoysPlanet</a></li>
+        <li><a href="Music.html">Music</a></li>
+        <li><a href="MerchandAlbums.html">Merch and Albums</a></li>
+        <li><a href="Quiz.html"> Quiz </a></li>
     </ul>
 </nav>
 <div class="background-scroller"></div>
 
 <div class="header-section main-container">
     <h1>ZB1 Zone</h1>
-    <img src="https://i.pinimg.com/736x/22/93/1f/22931fa861ccf35ae1c109e82261dfe1.jpg" class="title-icon" alt="ZB1 Logo">
+    <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
 </div>
 
 <h3 class="main-container"> Boys Planet</h3>
