@@ -445,19 +445,22 @@
 
 <nav id="sidebar">
     <ul>
-        <li><a href="#">Homepage</a></li>
-        <li><a href="#iconicperf">Members</a></li>
-        <li><a href="#dualposition">BoysPlanet</a></li>
-        <li><a href="#artistbattle">Music</a></li>
-        <li><a href="#finaltop9">Merch and Albums</a></li>
-        <li><a href="#bottom-info"> Quiz </a></li>
+        <li>
+            <a href="index.html">Homepage</a></li>
+            <li><a href="Members.html">Members</a></li>
+            <li><a href="BoysPlanet.html">BoysPlanet</a></li>
+            <li><a href="MUSICC.html">Music</a></li>
+            <li><a href="merchandalbums.html">Merch and Albums</a></li>
+            <li><a href="QUIZ.html"> Quiz </a></li>
     </ul>
 </nav>
 <div class="background-scroller"></div>
 
 <div class="header-section main-container">
     <h1>ZB1 Zone</h1>
-    <img src="https://i.pinimg.com/736x/22/93/1f/22931fa861ccf35ae1c109e82261dfe1.jpg" class="title-icon" alt="ZB1 Logo">
+    <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
+
+    
 </div>
 
 <h3 class="main-container"> Boys Planet</h3>
@@ -637,25 +640,21 @@ The show aired every Thursday at 8:50 PM (KST) with 12 episodes in total. It end
 </div>
 
 <script>
-    // *******************************************************************
-    // NEW: Function to toggle the sidebar's open/close state
+ 
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
         const toggle = document.getElementById('sidebar-toggle');
         sidebar.classList.toggle('active');
         toggle.classList.toggle('active');
     }
-    // *******************************************************************
     
     function scrollCarousel(carouselId, direction) {
         const carousel = document.getElementById(carouselId);
         if (!carousel) return;
 
-        // Find the first video container inside the carousel to determine the scroll width
         const videoContainer = carousel.querySelector('.video-container');
         if (!videoContainer) return;
 
-        // Calculate the width of one item plus the gap (20px)
         const itemWidth = videoContainer.offsetWidth + 20;
         
         const scrollAmount = itemWidth * direction;
