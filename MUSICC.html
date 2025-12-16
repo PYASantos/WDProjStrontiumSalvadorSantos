@@ -4,227 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Music</title>
-<style>
-body {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-color: #f4f7f6;
-color: #333;
-margin: 0;
-padding: 0;
-text-align: center;
-}
-
-header {
-padding: 40px 20px;
-background: linear-gradient(135deg, #a7e0ff, #50c9ff);
-color: white;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-margin: 0;
-font-size: 2.5em;
-}
-
-header p {
-margin-top: 10px;
-font-size: 1.1em;
-opacity: 0.9;
-}
-
-.container {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 30px;
-padding: 30px;
-max-width: 1200px;
-margin: 20px auto;
-}
-
-.item {
-background-color: white;
-border-radius: 12px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-overflow: hidden;
-cursor: pointer;
-transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 1s ease;
-padding: 15px;
-border: 1px solid #ddd;
-opacity: 0;
-}
-
-.item:nth-child(-n+4) {
-opacity: 1;
-}
-
-.item:hover {
-transform: translateY(-5px);
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-.item img {
-width: 100%;
-height: auto;
-border-radius: 8px;
-display: block;
-}
-
-.item p {
-font-weight: bold;
-margin: 10px 0 5px 0;
-font-size: 1.1em;
-color: #007bff;
-}
-
-.fade-in {
-opacity: 1 !important;
-}
-
-.modal {
-display: none;
-position: fixed;
-z-index: 1000;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-background-color: rgba(0,0,0,0.7);
-padding-top: 50px;
-}
-
-.modal-content {
-background-color: #fefefe;
-margin: 5% auto;
-padding: 20px;
-border-radius: 15px;
-width: 80%;
-max-width: 800px;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-position: relative;
-}
-
-.close {
-color: #aaa;
-float: right;
-font-size: 28px;
-font-weight: bold;
-transition: color 0.3s;
-}
-
-.close:hover,
-.close:focus {
-color: #333;
-text-decoration: none;
-cursor: pointer;
-}
-
-#modal-album-image {
-width: 150px;
-height: 150px;
-border-radius: 8px;
-float: left;
-margin-right: 20px;
-object-fit: cover;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-#modal-album-title {
-color: #17a2b8;
-margin-top: 0;
-text-align: left;
-}
-
-#modal-album-description {
-text-align: left;
-clear: both;
-padding-top: 15px;
-border-top: 1px solid #eee;
-margin-top: 10px;
-}
-
-.tracklist-heading, .meaning-heading {
-color: #6f42c1;
-border-bottom: 2px solid #6f42c1;
-padding-bottom: 5px;
-margin-top: 25px;
-text-align: left;
-}
-
-#modal-tracklist {
-list-style-type: none;
-padding: 0;
-text-align: left;
-}
-
-#modal-tracklist li {
-padding: 8px 0;
-border-bottom: 1px dotted #ccc;
-cursor: pointer;
-font-size: 1.1em;
-transition: background-color 0.2s;
-}
-
-#modal-tracklist li:hover {
-background-color: #f0f8ff;
-font-weight: 600;
-}
-
-#detail-song-title {
-color: #dc3545;
-margin-top: 10px;
-text-align: left;
-}
-
-.youtube-embed-container {
-position: relative;
-width: 100%;
-padding-bottom: 56.25%;
-height: 0;
-overflow: hidden;
-margin: 20px 0;
-border-radius: 8px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.youtube-embed-container iframe {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-border: 0;
-}
-
-.back-to-album {
-background-color: #007bff;
-color: white;
-border: none;
-padding: 10px 15px;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s;
-float: left;
-margin-bottom: 15px;
-}
-
-.back-to-album:hover {
-background-color: #0056b3;
-}
-
-#detail-song-meaning {
-text-align: left;
-padding: 15px;
-background-color: #e9ecef;
-border-radius: 5px;
-}
-</style>
+<link rel="stylesheet" href="MUSICC.css">
 </head>
 <body>
 
-<header>
-<h1>Music 💿✨</h1>
-</header>
+<div id="sidebar-toggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
 
+<nav id="sidebar">
+<ul>
+<li><a href="Homepage.html">Homepage</a></li>
+<li><a href="Members.html">Members</a></li>
+<li><a href="BoysPlanet.html">BoysPlanet</a></li>
+<li><a href="Music.html">Music</a></li>
+<li><a href="MerchandAlbums.html">Merch and Albums</a></li>
+<li><a href="Quiz.html"> Quiz </a></li>
+</ul>
+</nav>
+
+<img id="top-right-logo" src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" alt="ZB1 Logo">
+
+<header class="main-header">
+<h1>ZB1 Zone</h1>
+<h2>Discography</h2>
+</header>
 <div class="container" id="album-container">
 <div class="item" onclick="openModal('https://media.discordapp.net/attachments/914372233483403264/1448247972684107916/IMG_2966.jpg?ex=693a9187&is=69394007&hm=cb4dd2ac03b63031424edcdd64cdd019cb751a9d4f40a652ab7b2468b3ed2414&=&format=webp&width=570&height=570','We are ZEROBASEONE','This is their first greetings album after they got out of Boys Planet 999, where the group was formed. This was released on July 3, 2023, and it includes 10 songs, where the group made their first greeting to their fans called ZEROSE, and where each member first officially introduced themselves.', 'album1Tracks', true)">
 <img src="https://media.discordapp.net/attachments/914372233483403264/1448247972684107916/IMG_2966.jpg?ex=693a9187&is=69394007&hm=cb4dd2ac03b63031424edcdd64cdd019cb751a9d4f40a652ab7b2468b3ed2414&=&format=webp&width=570&height=570" alt="Album 1">
@@ -267,7 +73,7 @@ border-radius: 5px;
 </div>
 
 <div class="item" onclick="openModal('https://media.discordapp.net/attachments/914372233483403264/1448284892885417984/IMG_2986.png?ex=693ab3ea&is=6939626a&hm=2523eb69b2a55fc3727016afb541d3bb8df8f29d1d221af1285c80e6a0208b1c&=&format=webp&quality=lossless&width=569&height=570','스테이지 파이터 (STAGE FIGHTER) (STF) Original Vol. 6','The track by ZEROBASEONE on the STAGE FIGHTER (STF) Original Soundtrack Vol. 6 is titled Checkmate, and it was released on November 26, 2024. This song was specifically created for the final mission of the Mnet dance competition series STAGE FIGHTER (part of the Street Woman/Man Fighter franchise). It is a powerful, intense, and dramatic pop track that perfectly embodies the high-stakes atmosphere of a dance battle and competitions climax, complete with a dynamic arrangement and strong vocals. The songs title, Checkmate, reinforces the concept of a final, decisive move to win the game, delivering a performance-heavy sound that perfectly matches the fierce energy of the street dance show.', 'album9Tracks', false)">
-<img src="https://media.discordapp.net/attachments/914372233483403264/1448284892885417984/IMG_2986.png?ex=693ab3ea&is=6939626a&hm=2523eb69b2a55fc3727016afb541d3bb8df8f29d1d221af1285c80e6a0208b1c&=&format=webp&quality=lossless&width=569&height=570" alt="Album 9">
+<img src="https://media.discordapp.net/attachments/914372233483403264/1448284892885417984/IMG_2986.png?ex=693ab3ea&is=6939626a&hm=2523eb69b2a55fc3727016afb541d3bb8df8f29d1d221af128c80e6a0208b1c&=&format=webp&quality=lossless&width=569&height=570" alt="Album 9">
 <p>스테이지 파이터 (STAGE FIGHTER) (STF) Original Vol. 6</p>
 </div>
 
@@ -295,7 +101,6 @@ border-radius: 5px;
 <img src="https://media.discordapp.net/attachments/914372233483403264/1448292659465551964/IMG_2992.png?ex=693abb25&is=693969a5&hm=be7ead0c3a16bf35d3cac0a7cc4ea1b9253ac407271ed0a588ca8aab3ddf3b07&=&format=webp&quality=lossless&width=565&height=569" alt="Album 14">
 <p>RISING SUN</p>
 </div>
-
 </div>
 
 <div id="myModal" class="modal" onclick="closeModal()">
@@ -321,6 +126,26 @@ border-radius: 5px;
 </div>
 </div>
 
+<footer class="footer">
+<div id="bottom-info">
+<div id="contacts">
+<h4>Contact Us</h4>
+<h4>b2029syfsalvador@pshs.edu.ph</h4>
+<h4>b2029pyasantos@pshs.edu.ph</h4>
+</div>
+
+<div id="copyright">
+<p>© Ysabelle Salvador, Patricia Santos</p>
+</div>
+
+<div id="sources">
+<h4>Sources</h4>
+<h4>KProfiles</h4>
+<h4>Social Media</h4>
+<h4>@zb1official</h4>
+</div>
+</div>
+</footer>
 <script>
 const trackData = {
 album1Tracks: [
@@ -457,7 +282,6 @@ li.onclick = () => openSongDetails(track.name);
 } else {
 li.style.cursor = 'default';
 li.style.fontWeight = 'normal';
-li.style.color = '#777';
 }
 
 tracklist.appendChild(li);
@@ -503,6 +327,14 @@ document.getElementById('album-view').style.display = 'block';
 document.getElementById('song-detail-view').style.display = 'none';
 }
 
+function toggleSidebar() {
+const sidebar = document.getElementById('sidebar');
+const toggle = document.getElementById('sidebar-toggle');
+sidebar.classList.toggle('active');
+toggle.classList.toggle('active');
+}
+
+
 window.onclick = function(event) {
 const modal = document.getElementById('myModal');
 if (event.target === modal) {
@@ -511,6 +343,8 @@ closeModal();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+document.getElementById('sidebar-toggle').addEventListener('click', toggleSidebar);
+
 const albumItems = document.querySelectorAll('.item');
 
 const observer = new IntersectionObserver((entries, observer) => {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> ZB1 Zone </title>
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&">
     
     <style>  
     #sidebar {
@@ -45,7 +45,7 @@
             background-color: #3498db; 
         }
 
-
+        
         #sidebar-toggle {
             position: fixed;
             top: 20px; 
@@ -69,6 +69,7 @@
             transition: all 0.3s ease-in-out;
         }
 
+        
         #sidebar-toggle.active {
             transform: rotate(360deg); 
         }
@@ -83,6 +84,17 @@
 
         #sidebar-toggle.active span:nth-child(3) {
             transform: translateY(-11px) rotate(-45deg);
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+    .title-icon {
+            height: 50px;
+            width: 50px;
+            border: none;
+            border-radius: 10px;
         }
     body {
         margin: 0;
@@ -134,7 +146,6 @@
         flex-direction: row-reverse; 
     }
 
-    /* 2. Image Styling (Applies to ALL member images) */
     .member-profile img {
         height: 300px; 
         width: 300px;
@@ -145,13 +156,11 @@
         box-shadow: 0 2px 10px rgba(255, 255, 255, 0.4); 
     }
     
-    /* === FIX 1: Adjust Gap/Margin for Odd (Image Left) === */
     .member-profile:nth-child(odd) img {
         margin-right: 25px; 
         margin-left: 0;
     }
 
-    /* === FIX 2: Adjust Gap/Margin for Even (Image Right) === */
     .member-profile:nth-child(even) img {
         margin-left: 25px; 
         margin-right: 0;
@@ -166,7 +175,6 @@
         text-align: justify; 
     }
 
-    /* 3. Text/Heading Styles (Apply to all) */
 
     .info-box h2 {
         margin-top: 0; 
@@ -177,7 +185,6 @@
         color: #ffffff; 
     }
     
-    /* Description Block */
     .info-box .member-description {
         display: flex;
         flex-wrap: wrap; 
@@ -188,7 +195,6 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.463); 
     }
     
-    /* Individual Detail Spans */
     .info-box .member-detail {
         margin-right: 30px; 
         white-space: nowrap; 
@@ -196,20 +202,17 @@
         font-weight: 500;
     }
 
-    /* Fun Facts paragraph */
     .info-box .fun-facts {
         font-size: 1em; 
         line-height: 1.6; 
         margin-top: 10px; 
     }
 
-    /* Remove unneeded h4 styling since we combined them */
     .info-box h4,
     .member-description2 { 
         display: none; 
     }
 
-    /* 4. Layout and Typography */
 
     .main-container {
         max-width: 1200px; 
@@ -226,20 +229,19 @@
         text-align: center;
         font-size: 60px; 
         margin-top: 20px; 
-        margin-bottom: 80px; /* FIXED: Increased from 20px to 80px for bigger space between "Members" and first profile */
+        margin-bottom: 80px;
     }
-    /* Add space between "Members" heading and the first member (Hanbin) */
+
 #members-section {
     margin-top: 40px; 
 }
-/* Hover animation for member boxes */
 .member-profile {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .member-profile:hover {
-    transform: translateY(-10px); /* moves the box up */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* deeper shadow for the pop effect */
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
 }
 
 
@@ -268,6 +270,8 @@
         <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
 
     <h1>ZB1 Zone</h1>
+    <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
+
 </div>
 
 <h3 class="main-container"> Members </h3>

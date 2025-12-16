@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> ZB1 Zone </title>
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&">
     
     <style>
         #sidebar {
             position: fixed;
             top: 0;
+<<<<<<<< HEAD:Homepage.html
             left: -250px; 
             width: 250px;
             height: 100vh;
@@ -23,6 +24,21 @@
             left: 0; 
         }
 
+========
+            left: -250px; /* Hidden off-screen to the left */
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.85); /* Dark semi-transparent background */
+            z-index: 1000; /* Ensure it's on top of everything */
+            transition: left 0.3s ease; /* Animation for sliding */
+            padding-top: 80px; /* Space for the header/toggle icon */
+        }
+
+        #sidebar.active {
+            left: 0; /* Slide into view */
+        }
+        
+>>>>>>>> de22d6548cc5f68e6fd898465c3a4f85fceb8dcf:index.html
         #sidebar ul {
             list-style: none;
             padding: 0;
@@ -42,6 +58,7 @@
         }
 
         #sidebar li a:hover {
+<<<<<<<< HEAD:Homepage.html
             background-color: #3498db; 
         }
 
@@ -49,11 +66,24 @@
         #sidebar-toggle {
             position: fixed;
             top: 20px; 
+========
+            background-color: #3498db; /* Blue highlight on hover */
+        }
+
+        /* Toggle Button Styles (Hamburger Icon) */
+        #sidebar-toggle {
+            position: fixed;
+            top: 20px; /* Positioning in the top left corner */
+>>>>>>>> de22d6548cc5f68e6fd898465c3a4f85fceb8dcf:index.html
             left: 20px;
             width: 30px;
             height: 25px;
             cursor: pointer;
+<<<<<<<< HEAD:Homepage.html
             z-index: 1001; 
+========
+            z-index: 1001; /* Above the sidebar */
+>>>>>>>> de22d6548cc5f68e6fd898465c3a4f85fceb8dcf:index.html
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -69,8 +99,14 @@
             transition: all 0.3s ease-in-out;
         }
 
+<<<<<<<< HEAD:Homepage.html
         #sidebar-toggle.active {
             transform: rotate(360deg); 
+========
+        /* Toggle Button Animation for 'X' */
+        #sidebar-toggle.active {
+            transform: rotate(360deg); /* Simple spin effect */
+>>>>>>>> de22d6548cc5f68e6fd898465c3a4f85fceb8dcf:index.html
         }
 
         #sidebar-toggle.active span:nth-child(1) {
@@ -84,11 +120,14 @@
         #sidebar-toggle.active span:nth-child(3) {
             transform: translateY(-11px) rotate(-45deg);
         }
+<<<<<<<< HEAD:Homepage.html
+========
+        
+>>>>>>>> de22d6548cc5f68e6fd898465c3a4f85fceb8dcf:index.html
         * {
             box-sizing: border-box;
         }
 
-        /* NEW MATCHING BACKGROUND */
         .background-scroller {
             position: fixed; 
             top: 0;
@@ -99,10 +138,10 @@
             
             background: linear-gradient(
                 to bottom, 
-                #8baccd 0%,      
+                #a6d8f1 0%,      
                 #3498db 40%,     
-                #69addd 70%,     
-                #b0c4de 100%     
+                #3498db 70%,     
+                #a6d8f1 100%     
             );
         }
 
@@ -321,6 +360,7 @@
     </style>
 </head>
 <body>
+<<<<<<<< HEAD:Homepage.html
 <div id="sidebar-toggle" onclick="toggleSidebar()">
     <span></span>
     <span></span>
@@ -341,6 +381,28 @@
 <div class="background-scroller"></div>
 
 <div class="header-section main-container">
+========
+    <div id="sidebar-toggle" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <nav id="sidebar">
+        <ul>
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="Members.html">Members</a></li>
+            <li><a href="BoysPlanet.html">BoysPlanet</a></li>
+            <li><a href="MUSICC.html">Music</a></li>
+            <li><a href="merchandalbums.html">Merch and Albums</a></li>
+            <li><a href="QUIZ.html"> Quiz </a></li>
+        </ul>
+    </nav>
+<div class="background-scroller"></div>
+
+<div class="header-section main-container">
+
+>>>>>>>> de22d6548cc5f68e6fd898465c3a4f85fceb8dcf:index.html
     <h1>ZB1 Zone</h1>
     <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
 </div>
@@ -361,27 +423,27 @@ They will be active for two and a half years on a special contract before it end
 <div id="pages-section" class="main-container">
     <div id="pages">
         
-        <a href="https://ysasalvador.github.io/CS3_1stQtrPortfolio/public/2Q1GStrontiumSalvador.html" class="page-item">
+        <a href="Members.html" class="page-item">
             <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
             <p class="page-label">Members</p>
         </a>
 
-        <a href="#" class="page-item">
+        <a href="MUSICC.html" class="page-item">
             <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
             <p class="page-label">Music</p>
         </a>
 
-        <a href="#" class="page-item">
+        <a href="BoysPlanet.html" class="page-item">
             <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
             <p class="page-label">Boys Planet</p>
         </a>
 
-        <a href="#" class="page-item">
+        <a href="merchandalbums.html" class="page-item">
             <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
             <p class="page-label">Merch & Albums</p>
         </a>
 
-        <a href="#" class="page-item">
+        <a href="QUIZ.html" class="page-item">
             <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
             <p class="page-label">Quiz</p>
         </a>
@@ -411,6 +473,7 @@ They will be active for two and a half years on a special contract before it end
 </body>
 </html>
 <script>
+<<<<<<<< HEAD:Homepage.html
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
         const toggle = document.getElementById('sidebar-toggle');
@@ -418,3 +481,12 @@ They will be active for two and a half years on a special contract before it end
         toggle.classList.toggle('active');
     }
 </script>
+========
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const toggle = document.getElementById('sidebar-toggle');
+    sidebar.classList.toggle('active');
+    toggle.classList.toggle('active');
+}
+</script>
+>>>>>>>> de22d6548cc5f68e6fd898465c3a4f85fceb8dcf:index.html

@@ -12,9 +12,6 @@
             box-sizing: border-box;
         }
 
-        /* --- New Sidebar Styles Start --- */
-        
-        /* The Sidebar Menu Itself */
         #sidebar {
             position: fixed;
             top: 0;
@@ -141,15 +138,14 @@
             border-radius: 10px;
         }
 
-        /* --- HEADER FIX: Ensures icons are fully transparent and borderless --- */
         .header-section img:first-child,
         .header-section img:last-child {
             background: transparent;
-            border-radius: 0; /* Ensures no rounded border residue */
-            box-shadow: none; /* Removed shadow */
+            border-radius: 0; 
+            box-shadow: none; 
             border: none;
         }
-        /* -------------------------------------------------------------------- */
+
 
         h1 {
             color: white;
@@ -448,12 +444,12 @@
 
 <nav id="sidebar">
     <ul>
-        <li><a href="Homepage.html">Homepage</a></li>
-        <li><a href="Members.html">Members</a></li>
-        <li><a href="BoysPlanet.html">BoysPlanet</a></li>
-        <li><a href="Music.html">Music</a></li>
-        <li><a href="MerchandAlbums.html">Merch and Albums</a></li>
-        <li><a href="Quiz.html"> Quiz </a></li>
+        <li><a href="#">Homepage</a></li>
+        <li><a href="#iconicperf">Members</a></li>
+        <li><a href="#dualposition">BoysPlanet</a></li>
+        <li><a href="#artistbattle">Music</a></li>
+        <li><a href="#finaltop9">Merch and Albums</a></li>
+        <li><a href="#bottom-info"> Quiz </a></li>
     </ul>
 </nav>
 <div class="background-scroller"></div>
@@ -640,25 +636,21 @@ The show aired every Thursday at 8:50 PM (KST) with 12 episodes in total. It end
 </div>
 
 <script>
-    // *******************************************************************
-    // NEW: Function to toggle the sidebar's open/close state
+ 
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
         const toggle = document.getElementById('sidebar-toggle');
         sidebar.classList.toggle('active');
         toggle.classList.toggle('active');
     }
-    // *******************************************************************
     
     function scrollCarousel(carouselId, direction) {
         const carousel = document.getElementById(carouselId);
         if (!carousel) return;
 
-        // Find the first video container inside the carousel to determine the scroll width
         const videoContainer = carousel.querySelector('.video-container');
         if (!videoContainer) return;
 
-        // Calculate the width of one item plus the gap (20px)
         const itemWidth = videoContainer.offsetWidth + 20;
         
         const scrollAmount = itemWidth * direction;
