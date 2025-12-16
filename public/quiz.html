@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZB1 Zone - Quiz</title>
 <link rel="stylesheet" href="quiz.css">
+    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1270327529164505246/1450376094367613023/IMG_3097-removebg-preview.png?ex=69424f7f&is=6940fdff&hm=6ccefc3a66164465a7dadcf3f733a146dcc5cf9347bfa9fa2b2df84543d354df&=&format=webp&quality=lossless&width=1036&height=964">
+
 </head>
 <body>
 
@@ -16,12 +18,12 @@
 
 <nav id="sidebar">
 <ul>
-<li><a href="Homepage.html">Homepage</a></li>
-<li><a href="Members.html">Members</a></li>
-<li><a href="BoysPlanet.html">BoysPlanet</a></li>
-<li><a href="Music.html">Music</a></li>
-<li><a href="MerchandAlbums.html">Merch and Albums</a></li>
-<li><a href="Quiz.html"> Quiz </a></li>
+<li><a href="index.html">Homepage</a></li>
+        <li><a href="MM.html">Members</a></li>
+        <li><a href="BoysPlanet.html">BoysPlanet</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="merchandalbums.html">Merch and Albums</a></li>
+        <li><a href="quiz.html"> Quiz </a></li>
 </ul>
 </nav>
 
@@ -99,13 +101,14 @@ Play Again
 
 <div id="sources">
 <h4>Sources</h4>
-<h4>KProfiles</h4>
+<h4>Binanacake. (2025, October 10). ZEROBASEONE (ZB1) Members Profile (Updated!) - KPop Profiles. Kpop Profiles. https://kprofiles.com/zerobaseone-members-profile/</h4>
 <h4>Social Media</h4>
 <h4>@zb1official</h4>
 </div>
 </div>
 </footer>
 <script>
+    /* QUIZ FUNCTIONALITY SCRIPT */
 const ZB1_MEMBERS = [
 'Jiwoong', 'Zhang Hao', 'Sung Han-bin', 'Seok Matthew', 'Kim Tae-rae',
 'Ricky', 'Kim Gyu-vin', 'Park Gun-wook', 'Han Yu-jin'
@@ -264,10 +267,12 @@ options: [
 }
 ];
 
+/* Quiz State Variables */
 let currentQuestionIndex = 0;
 let userAnswers = new Array(quizData.length).fill(null);
 let memberScores = {};
 
+/* DOM Elements */
 const introScreen = document.getElementById('intro-screen');
 const questionScreen = document.getElementById('question-screen');
 const resultScreen = document.getElementById('result-screen');
@@ -281,6 +286,7 @@ const resultHeading = document.getElementById('result-heading');
 const resultText = document.getElementById('result-text');
 const restartButton = document.getElementById('restart-quiz-btn');
 
+/* Resets the tally for all members to zero */
 function initializeScores() {
 memberScores = {};
 ZB1_MEMBERS.forEach(member => {
@@ -288,6 +294,7 @@ memberScores[member] = 0;
 });
 }
 
+/* Switches to the intro screen and resets quiz state */
 function startQuiz() {
 currentQuestionIndex = 0;
 userAnswers.fill(null);
@@ -301,6 +308,7 @@ loadQuestion(currentQuestionIndex);
 updateProgressBar();
 }
 
+/* Build HTML for the current question */
 function loadQuestion(index) {
 if (index < 0 || index >= quizData.length) return;
 
@@ -309,6 +317,7 @@ const currentQuestion = quizData[index];
 questionElement.textContent = `${currentQuestion.question}`;
 answersContainer.innerHTML = '';
 
+// Randomizes the order of answers so users don't memorize positions
 const shuffledOptions = [...currentQuestion.options].sort(() => Math.random() - 0.5);
 
 shuffledOptions.forEach((option, optionIndex) => {
@@ -317,6 +326,7 @@ button.classList.add('answer-option');
 button.textContent = option.text;
 button.dataset.member = option.member;
 
+// If user goes back, highlight their previous choice
 if (userAnswers[index] === option.member) {
 button.classList.add('selected');
 }
@@ -328,16 +338,20 @@ answersContainer.appendChild(button);
 updateNavigationButtons();
 }
 
+/* Records the choice and auto-advances */
 function selectAnswer(questionIndex, selectedButton, member) {
+    // Highlight selected button
 Array.from(answersContainer.children).forEach(btn => {
 btn.classList.remove('selected');
 });
 selectedButton.classList.add('selected');
 
+// Save the member associated with this choice
 userAnswers[questionIndex] = member;
 
 updateProgressBar();
 
+// Small delay for visual satisfaction before moving to the next question
 setTimeout(() => {
 if (questionIndex < quizData.length - 1) {
 goToNextQuestion();
@@ -371,6 +385,7 @@ nextButton.classList.remove('active');
 }
 }
 
+// NAVIGATION AND SIDEBAR LOGIC
 function updateProgressBar() {
 const answeredCount = userAnswers.filter(answer => answer !== null).length;
 const progress = (answeredCount / quizData.length) * 100;

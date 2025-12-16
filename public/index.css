@@ -1,27 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> ZB1 Zone </title>
-    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&">
-    
-    <style>
+/* CSS FOR SIDEBAR NAVIGATION */
         #sidebar {
             position: fixed;
             top: 0;
-            /* Combined Sidebar CSS: Keeping the more verbose (commented) version for clarity */
-            left: -250px; /* Hidden off-screen to the left */
+            left: -250px;
             width: 250px;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.85); /* Dark semi-transparent background */
-            z-index: 1000; /* Ensure it's on top of everything */
-            transition: left 0.3s ease; /* Animation for sliding */
-            padding-top: 80px; /* Space for the header/toggle icon */
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000; 
+            transition: left 0.3s ease;
+            padding-top: 80px; 
         }
 
         #sidebar.active {
-            left: 0; /* Slide into view */
+            left: 0; 
         }
         
         #sidebar ul {
@@ -43,18 +34,18 @@
         }
 
         #sidebar li a:hover {
-            background-color: #3498db; /* Blue highlight on hover */
+            background-color: #3498db; 
         }
 
-        /* Toggle Button Styles (Hamburger Icon) */
+        
         #sidebar-toggle {
             position: fixed;
-            top: 20px; /* Positioning in the top left corner */
+            top: 20px; 
             left: 20px;
             width: 30px;
             height: 25px;
             cursor: pointer;
-            z-index: 1001; /* Above the sidebar */
+            z-index: 1001; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -70,9 +61,8 @@
             transition: all 0.3s ease-in-out;
         }
 
-        /* Toggle Button Animation for 'X' */
         #sidebar-toggle.active {
-            transform: rotate(360deg); /* Simple spin effect */
+            transform: rotate(360deg); 
         }
 
         #sidebar-toggle.active span:nth-child(1) {
@@ -91,7 +81,7 @@
         * {
             box-sizing: border-box;
         }
-
+/* CSS FOR LAYOUT AND TYPOGRAPHY */
         .background-scroller {
             position: fixed; 
             top: 0;
@@ -122,7 +112,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-
+/* CSS FOR HEADINGS AND TEXT */
         .header-section {
             display: flex;
             justify-content: space-between;
@@ -187,7 +177,7 @@
             padding: 0 20px; 
             text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); 
         }
-
+/* CSS FOR MEDIA */
         #media {
             display: flex;
             align-items: center;
@@ -261,33 +251,55 @@
             max-width: 100%;
             text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); 
         }
-
+/* CSS FOR FOOTER */
         #bottom-info {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start; 
-            padding: 40px 20px 20px;
+            justify-content: space-around; 
+            align-items: flex-start;
+            padding: 40px 20px;
             margin: 50px auto 0;
-            color: white; 
-            font-size: 16px;
+            color: white;
             font-family: monospace;
-        }
-
-        #contacts, #sources, #copyright {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            padding: 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3); 
         }
 
         #contacts, #sources {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            padding: 0 10px;
             flex-basis: 30%; 
         }
+        
+        #contacts h4, #sources h4 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
 
+        #contacts h4:not(:first-child), #sources h4:not(:first-child) {
+            font-weight: normal;
+            font-size: 14px;
+            margin-bottom: 2px;
+            opacity: 0.8;
+        }
+        
         #copyright {
-            flex-grow: 1; 
+            flex-basis: 30%;
             text-align: center;
             font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+        }
+
+        #copyright p {
+            font-size: 14px;
+            margin: 0;
+            text-align: center;
+            padding: 0;
         }
 
         footer {
@@ -320,106 +332,3 @@
                 margin-bottom: 20px;
             }
         }
-
-    </style>
-</head>
-<body>
-    <div id="sidebar-toggle" onclick="toggleSidebar()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    
-    <nav id="sidebar">
-        <ul>
-            <li><a href="index.html">Homepage</a></li>
-            <li><a href="Members.html">Members</a></li>
-            <li><a href="BoysPlanet.html">BoysPlanet</a></li>
-            <li><a href="MUSICC.html">Music</a></li>
-            <li><a href="merchandalbums.html">Merch and Albums</a></li>
-            <li><a href="QUIZ.html"> Quiz </a></li>
-        </ul>
-    </nav>
-<div class="background-scroller"></div>
-
-<div class="header-section main-container">
-    <h1>ZB1 Zone</h1>
-    <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
-</div>
-
-<h3 class="main-container"> Your All-Access Pass to</h3>
-<h3 class="main-container">ZEROBASEONE</h3>
-
-<div id="media" class="main-container">
-    <img src="https://i.pinimg.com/1200x/89/ed/fc/89edfca87b4befa929bc0edf030ddf5a.jpg" alt="zb1 group photo" class="media-img"/>
-</div>
-
-<h2 class="main-container"> Information </h2>
-<p class="main-container">
-ZEROBASEONE (Korean: 제로베이스원; Japanese: ゼロベースワン; also shortened to ZB1) is a nine-member multinational project boy group under WAKEONE. Formed through Mnet's reality survival show Boys Planet, they made their debut on July 10, 2023 with their first mini album Youth in the Shade.
-They will be active for two and a half years on a special contract before it ends sometime in March 2026. The meaning behind their name is "the journey of nine trainees to complete as one after debut".
-</p>
-
-<div id="pages-section" class="main-container">
-    <div id="pages">
-        
-        <a href="Members.html" class="page-item">
-            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
-            <p class="page-label">Members</p>
-        </a>
-
-        <a href="MUSICC.html" class="page-item">
-            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
-            <p class="page-label">Music</p>
-        </a>
-
-        <a href="BoysPlanet.html" class="page-item">
-            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
-            <p class="page-label">Boys Planet</p>
-        </a>
-
-        <a href="merchandalbums.html" class="page-item">
-            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
-            <p class="page-label">Merch & Albums</p>
-        </a>
-
-        <a href="QUIZ.html" class="page-item">
-            <img src="https://i.pinimg.com/736x/0c/28/d3/0c28d313091eeea8f014dd092a9f8ec6.jpg" class="page-image"/>
-            <p class="page-label">Quiz</p>
-        </a>
-
-    </div>
-</div>
-
-<div id="bottom-info" class="main-container">
-    <div id="contacts">
-        <h4>Contact Us</h4>
-        <h4>b2029</h4>
-        <h4>b2029</h4>
-    </div>
-    
-    <div id="copyright">
-        <p>© Ysabelle Salvador, Patricia Santos</p>
-    </div>
-    
-    <div id="sources">
-        <h4>Sources</h4>
-        <h4>Lorem ipsum</h4>
-        <h4>Social Media</h4>
-        <h4>Lorem ipsum</h4>
-    </div>
-</div>
-
-</body>
-</html>
-<script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        const toggle = document.getElementById('sidebar-toggle');
-        sidebar.classList.toggle('active');
-        toggle.classList.toggle('active');
-    }
-
-    /* Combined script block to remove duplication */
-    /* The second script block in the original conflict was redundant */
-</script>

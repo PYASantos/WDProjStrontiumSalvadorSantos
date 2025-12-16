@@ -4,250 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> ZB1 Zone </title>
-    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&">
-    
-    <style>  
-    #sidebar {
-            position: fixed;
-            top: 0;
-            left: -250px; 
-            width: 250px;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.85); 
-            z-index: 1000; 
-            transition: left 0.3s ease; 
-            padding-top: 80px; 
-        }
-
-        #sidebar.active {
-            left: 0; 
-        }
-
-        #sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #sidebar li a {
-            display: block;
-            padding: 15px 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-family: monospace;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: left;
-            transition: background 0.2s;
-        }
-
-        #sidebar li a:hover {
-            background-color: #3498db; 
-        }
-
-        
-        #sidebar-toggle {
-            position: fixed;
-            top: 20px; 
-            left: 20px;
-            width: 30px;
-            height: 25px;
-            cursor: pointer;
-            z-index: 1001; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease-in-out;
-        }
-
-        #sidebar-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background: white;
-            border-radius: 9px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        
-        #sidebar-toggle.active {
-            transform: rotate(360deg); 
-        }
-
-        #sidebar-toggle.active span:nth-child(1) {
-            transform: translateY(11px) rotate(45deg);
-        }
-
-        #sidebar-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        #sidebar-toggle.active span:nth-child(3) {
-            transform: translateY(-11px) rotate(-45deg);
-        }
-        
-        * {
-            box-sizing: border-box;
-        }
-
-    .title-icon {
-            height: 50px;
-            width: 50px;
-            border: none;
-            border-radius: 10px;
-        }
-    body {
-        margin: 0;
-        font-family: sans-serif;
-        color: #fff; 
-        background-color: #8baccd; 
-    }
-
-    .background-scroller {
-        position: fixed; 
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; 
-        
-        background: linear-gradient(
-            to bottom, 
-            #8baccd 0%,      
-            #3498db 40%,     
-            #69addd 70%,     
-            #b0c4de 100%     
-        );
-    }
-    
-    .header-section, h3 {
-        color: #fafafa; 
-    }
-
-    .member-profile {
-        display: flex; 
-        width: 100%;
-        padding: 20px; 
-        box-sizing: border-box; 
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-        align-items: flex-start; 
-        margin-bottom: 30px; 
-        background: linear-gradient(to right, #9bb9e088, #c7d8f088); 
-        color: #ffffff; 
-        position: relative; 
-    }
-    
-    .member-profile:nth-child(odd) {
-        flex-direction: row; 
-    }
-
-    .member-profile:nth-child(even) {
-        flex-direction: row-reverse; 
-    }
-
-    .member-profile img {
-        height: 300px; 
-        width: 300px;
-        object-fit: cover; 
-        border: 10px solid white; 
-        border-radius: 15px;
-        display: block;
-        box-shadow: 0 2px 10px rgba(255, 255, 255, 0.4); 
-    }
-    
-    .member-profile:nth-child(odd) img {
-        margin-right: 25px; 
-        margin-left: 0;
-    }
-
-    .member-profile:nth-child(even) img {
-        margin-left: 25px; 
-        margin-right: 0;
-    }
-
-    .info-box {
-        flex-grow: 1; 
-        text-align: justify; 
-    }
-    
-    .member-profile:nth-child(even) .info-box {
-        text-align: justify; 
-    }
-
-
-    .info-box h2 {
-        margin-top: 0; 
-        font-size: 2.8em; 
-        font-weight: bold;
-        margin-bottom: 5px; 
-        line-height: 1.1; 
-        color: #ffffff; 
-    }
-    
-    .info-box .member-description {
-        display: flex;
-        flex-wrap: wrap; 
-        font-size: 1.2em; 
-        line-height: 1.5; 
-        margin-bottom: 15px; 
-        padding-bottom: 10px; 
-        border-bottom: 1px solid rgba(255, 255, 255, 0.463); 
-    }
-    
-    .info-box .member-detail {
-        margin-right: 30px; 
-        white-space: nowrap; 
-        margin-bottom: 5px; 
-        font-weight: 500;
-    }
-
-    .info-box .fun-facts {
-        font-size: 1em; 
-        line-height: 1.6; 
-        margin-top: 10px; 
-    }
-
-    .info-box h4,
-    .member-description2 { 
-        display: none; 
-    }
-
-
-    .main-container {
-        max-width: 1200px; 
-        margin: 0 auto;
-        padding: 0 15px; 
-    }
-
-    .header-section {
-        text-align: center;
-        padding: 20px 0;
-    }
-
-    h3 {
-        text-align: center;
-        font-size: 60px; 
-        margin-top: 20px; 
-        margin-bottom: 80px;
-    }
-
-#members-section {
-    margin-top: 40px; 
-}
-.member-profile {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.member-profile:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
-}
-
-
-    </style>
+    <link rel="stylesheet" href="MM.css">
+    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1270327529164505246/1450376094367613023/IMG_3097-removebg-preview.png?ex=69424f7f&is=6940fdff&hm=6ccefc3a66164465a7dadcf3f733a146dcc5cf9347bfa9fa2b2df84543d354df&=&format=webp&quality=lossless&width=1036&height=964">
 </head>
 <body>
+<!-- CODE FOR SIDEBAR NAVIGATION -->
 <div id="sidebar-toggle" onclick="toggleSidebar()">
     <span></span>
     <span></span>
@@ -256,26 +17,24 @@
 
 <nav id="sidebar">
     <ul>
-        <li><a href="Homepage.html">Homepage</a></li>
-        <li><a href="Members.html">Members</a></li>
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="MM.html">Members</a></li>
         <li><a href="BoysPlanet.html">BoysPlanet</a></li>
-        <li><a href="Music.html">Music</a></li>
-        <li><a href="MerchandAlbums.html">Merch and Albums</a></li>
-        <li><a href="Quiz.html"> Quiz </a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="merchandalbums.html">Merch and Albums</a></li>
+        <li><a href="quiz.html"> Quiz </a></li>
     </ul>
 </nav>
+
 <div class="background-scroller"></div>
-
+<!-- CODE FOR HEADER -->
+<img id="logo-icon" src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" alt="ZB1 Logo">
 <div class="header-section main-container">
-        <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
-
     <h1>ZB1 Zone</h1>
-    <img src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" class="title-icon" alt="ZB1 Logo">
-
-</div>
+    </div>
 
 <h3 class="main-container"> Members </h3>
-
+<!-- CODE FOR ABOUT MEMBERS -->
 <div id="members-section" class="main-container">
 
     <div id="hanbin" class="member-profile"> 
@@ -412,7 +171,25 @@
             <p class="fun-facts">Fun Facts: Yujin was a trainee for 2 years and 3 months after which he took part in BOYS PLANET. He is the youngest member. His role models are SHINee's Taemin, EXO's Kai, and Stray Kids' Hyunjin. He has a dog named Terry. He was born in Daegu, and then moved to Gyeonggi-do, South Korea. He has a habit of sleeping with his eyes open.</p>
         </div>
     </div>
-    
+<!-- CODE FOR FOOTER -->
+    <div id="bottom-info" class="main-container">
+    <div id="contacts">
+        <h4>Contact Us</h4>
+        <h4>b2029syfsalvador@pshs.edu.ph</h4>
+        <h4>b2029pyasantos@pshs.edu.ph</h4>
+    </div>
+
+    <div id="copyright">
+        <p>© Ysabelle Salvador, Patricia Santos</p>
+    </div>
+
+    <div id="sources">
+        <h4>Sources</h4>
+        <h4>Binanacake. (2025, October 10). ZEROBASEONE (ZB1) Members Profile (Updated!) - KPop Profiles. Kpop Profiles. https://kprofiles.com/zerobaseone-members-profile/</h4>
+        <h4>Social Media </h4>
+        <h4>@zb1official</h4>
+    </div>
+</div>
 </div>
 
 </body>
