@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> ZB1 Zone </title>
     <link rel="stylesheet" href="BoysPlanet.css">
+    <script src="BoysPlanet.js" defer></script>
     <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1270327529164505246/1450376094367613023/IMG_3097-removebg-preview.png?ex=69424f7f&is=6940fdff&hm=6ccefc3a66164465a7dadcf3f733a146dcc5cf9347bfa9fa2b2df84543d354df&=&format=webp&quality=lossless&width=1036&height=964">
 </head>
 <body>
@@ -208,33 +209,5 @@ The show aired every Thursday at 8:50 PM (KST) with 12 episodes in total. It end
         <h4>@zb1official</h4>
     </div>
 </div>
-
-<script>
- 
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        const toggle = document.getElementById('sidebar-toggle');
-        sidebar.classList.toggle('active');
-        toggle.classList.toggle('active');
-    }
-    
-    function scrollCarousel(carouselId, direction) {
-        const carousel = document.getElementById(carouselId);
-        if (!carousel) return;
-
-        const videoContainer = carousel.querySelector('.video-container');
-        if (!videoContainer) return;
-
-        const itemWidth = videoContainer.offsetWidth + 20;
-        
-        const scrollAmount = itemWidth * direction;
-
-        carousel.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    }
-</script>
-
 </body>
 </html>
