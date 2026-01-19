@@ -1,14 +1,15 @@
 /* Same style as other pages */
 :root {
---color-primary: #1e88e5;
---color-secondary: #ffffff;
---color-text-light: #f0f3f6;
---color-text-dark: #2c3e50;
---color-background-start: #b3e5fc;
---color-background-end: #3949ab;
---color-box-bg: rgba(255, 255, 255, 0.4);
---color-dark-box: rgba(45, 85, 120, 0.7);
---color-dark-text: #e0f7fa;
+    --color-primary: #1e88e5;
+    --color-secondary: #ffffff;
+    --color-text-light: #f0f3f6;
+    --color-text-dark: #2c3e50;
+    --color-background-start: #c8edff;
+    --color-background-end: #a6d8f1;
+    --color-box-bg: rgba(255, 255, 255, 0.4);
+    --color-active-bg: rgba(255, 255, 255, 0.8);
+    --color-dark-box: rgba(45, 85, 120, 0.7);
+    --color-dark-text: #e0f7fa;
 }
 
 * {
@@ -19,7 +20,13 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-background: linear-gradient(180deg, var(--color-background-start) 0%, #a6d8f1 30%, #5892b1 70%, var(--color-background-end) 100%);
+background: linear-gradient(
+        to bottom,
+        #c8edff 0%,      
+        #2d9ce6 40%,     
+        #367ba9 70%,     
+        #a6d8f1 100%   
+    );
 min-height: 100vh;
 color: var(--color-text-light);
 padding-top: 100px; /* Space for fixed header */

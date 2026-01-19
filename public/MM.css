@@ -87,22 +87,23 @@
         background-color: #8baccd; 
     }
 
-    .background-scroller {
-        position: fixed; 
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; 
-        
-        background: linear-gradient(
-            to bottom, 
-            #a6d8f1 0%,      
-                #3498db 40%,     
-                #3498db 70%,     
-                #a6d8f1 100%      
-        );
-    }
+    /* CSS FOR BACKGROUND */           
+        .background-scroller {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+            background: linear-gradient(
+                to bottom,
+                #c8edff 0%,      
+                #2d9ce6 40%,     
+                #549ed0 70%,     
+                #a6d8f1 100%   
+            );
+        }
     
     /* CSS FOR LOGO */
     #logo-icon {
@@ -223,12 +224,31 @@
         padding: 0 15px; 
     }
     
-    
     .header-section {
-        display: block; 
-        text-align: center;
-        padding: 20px 0;
-    }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;           /* CHANGED: row instead of column */
+            justify-content: space-between; /* CHANGED: logo to right */
+            align-items: center;
+            padding: 15px 30px;             /* Adjusted padding */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            text-align: center;
+            display: block; 
+            text-align: center;
+            padding: 20px 0;
+
+        }
     
     .title-icon {
         display: none;
@@ -247,7 +267,7 @@
     h3 {
         text-align: center;
         font-size: 60px; 
-        margin-top: 20px; 
+        margin-top: 100px; 
         margin-bottom: 80px; 
     }
     
@@ -265,55 +285,52 @@
 }
 /* CSS FOR FOOTER */
 #bottom-info {
-            display: flex;
-            justify-content: space-around; 
-            align-items: flex-start;
-            padding: 40px 20px;
-            margin: 50px auto 0;
-            color: white;
-            font-family: monospace;
-            border-top: 1px solid rgba(255, 255, 255, 0.3); 
-        }
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);  /* THICK VISIBLE WHITE LINE */
+    padding: 20px 30px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    max-width: 95vw;
+    margin: 60px auto 0;  /* SPACE ABOVE + CENTERED */
+    font-family: monospace;
+}
 
-        #contacts, #sources {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            padding: 0 10px;
-            flex-basis: 30%; 
-        }
-        
-        #contacts h4, #sources h4 {
-            margin: 0 0 5px 0;
-            font-size: 18px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
+#bottom-info h4 {
+    font-size: 1.1em;
+    font-weight: normal;
+    margin: 8px 0;
+    color: rgba(255, 255, 255, 1);  /* PURE WHITE HEADERS */
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
 
-        #contacts h4:not(:first-child), #sources h4:not(:first-child) {
-            font-weight: normal;
-            font-size: 14px;
-            margin-bottom: 2px;
-            opacity: 0.8;
-        }
-        
-        #copyright {
-            flex-basis: 30%;
-            text-align: center;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 10px;
-        }
+#contacts, #sources {
+    flex: 1;
+    padding: 0 15px;
+    min-width: 150px;
+}
 
-        #copyright p {
-            font-size: 14px;
-            margin: 0;
-            text-align: center;
-            padding: 0;
-        }
+#copyright {
+    flex: 1;
+    text-align: center;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        footer {
-            display: none;
-        }
+#copyright p {
+    margin: 5px 0;
+    font-size: 1em;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+footer {
+    display: none;
+}

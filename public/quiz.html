@@ -1,112 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZB1 Zone - Quiz</title>
-<link rel="stylesheet" href="quiz.css">
-<script src="quiz.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZB1 Zone - Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    <script src="quiz.js" defer></script>
     <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1270327529164505246/1450376094367613023/IMG_3097-removebg-preview.png?ex=69424f7f&is=6940fdff&hm=6ccefc3a66164465a7dadcf3f733a146dcc5cf9347bfa9fa2b2df84543d354df&=&format=webp&quality=lossless&width=1036&height=964">
-
 </head>
 <body>
 
 <div id="sidebar-toggle">
-<span></span>
-<span></span>
-<span></span>
+    <span></span>
+    <span></span>
+    <span></span>
 </div>
 
 <nav id="sidebar">
-<ul>
-<li><a href="../index.html">Homepage</a></li>
+    <ul>
+        <li><a href="../index.html">Homepage</a></li>
         <li><a href="MM.html">Members</a></li>
         <li><a href="BoysPlanet.html">BoysPlanet</a></li>
         <li><a href="music.html">Music</a></li>
         <li><a href="merchandalbums.html">Merch and Albums</a></li>
         <li><a href="quiz.html"> Quiz </a></li>
-</ul>
+    </ul>
 </nav>
 
 <img id="top-right-logo" src="https://cdn.discordapp.com/attachments/1270327529164505246/1449676049951494154/image-removebg-preview_2.png?ex=693fc387&is=693e7207&hm=88a8ddc81f97005a721d9f71c322ab76de853931f8b1af8da5935b80ff52aa8c&" alt="ZB1 Logo">
 
 <div class="container">
-<header class="header">
-<div class="header-center">
-<h1>ZB1 Zone</h1>
-</div>
-</header>
+    <header class="header">
+        <div class="header-center">
+            <h1>ZB1 Zone</h1>
+        </div>
+    </header>
 
-<main class="quiz-container">
-<h1>Quiz: Find Your ZB1 Match</h1>
+    <main class="quiz-container">
+        <h1>Quiz: Find Your ZB1 Match</h1>
 
-<section id="intro-screen">
-<p class="quiz-title-desc">
-Get to know who you're most similar to in ZB1!
-Who knows.. this member might just be your future bias 🤭
-</p>
+        <section id="intro-screen">
+            <p class="quiz-title-desc">Get to know who you're most similar to in ZB1! Who knows.. this member might just be your future bias ??</p>
+            <div class="quiz-intro-box">
+                <p>You are about to tackle 10 quick questions that secretly hold the key to a ZB1 member's personality! Simply select the choice that best matches your own vibe, hobby, or style for all 10 categories. Once your final selection is locked in, the quiz will instantly reveal your results to show you which star in ZEROBASEONE is your perfect personality twin! Ready to find your match?</p>
+            </div>
+            <button id="start-quiz-btn" class="action-button">Start the Quiz!</button>
+        </section>
 
-<div class="quiz-intro-box">
-<p>
-You are about to tackle 10 quick questions that secretly hold the key to a ZB1 member's personality! Simply select the choice that best matches your own vibe, hobby, or style for all 10 categories. Once your final selection is locked in, the quiz will instantly reveal your results to show you which star in ZEROBASEONE is your perfect personality twin! Ready to find your match?
-</p>
-</div>
+        <section id="registration-screen" class="hidden">
+            <div class="quiz-intro-box">
+                <h2 style="color: var(--color-dark-text); margin-bottom: 15px;">Registration</h2>
+                <form id="registration-form">
+                    <div style="text-align: left; margin-bottom: 15px;">
+                        <label for="user-name" style="display: block; margin-bottom: 5px; color: var(--color-dark-text);">Name</label>
+                        <input type="text" id="user-name" required style="width: 100%; padding: 10px; border-radius: 10px; border: none; color: black;">
+                    </div>
+                    <div style="text-align: left; margin-bottom: 20px;">
+                        <label for="zerose-level" style="display: block; margin-bottom: 5px; color: var(--color-dark-text);">ZEROSE Level</label>
+                        <select id="zerose-level" required style="width: 100%; padding: 10px; border-radius: 10px; border: none; color: black;">
+                            <option value="New Fan">New Fan</option>
+                            <option value="Casual Listener">Casual Listener</option>
+                            <option value="Dedicated ZEROSE">Dedicated ZEROSE</option>
+                            <option value="Ultimate Bias Wrecker">Ultimate Bias Wrecker</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="action-button" style="width: 100%;">Enter Quiz</button>
+                </form>
+            </div>
+        </section>
 
-<button id="start-quiz-btn" class="action-button">
-Start the Quiz!
-</button>
-</section>
+        <section id="question-screen" class="hidden">
+            <div class="question-navigation-overlay">
+                <div class="nav-arrow prev-arrow" id="prev-btn">&lt;</div>
+                <div class="nav-arrow next-arrow" id="next-btn">&gt;</div>
+            </div>
+            <p class="quiz-question-text" id="quiz-question"></p>
+            <div id="answers-container"></div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <div id="progress-bar-placeholder"></div>
+            </div>
+        </section>
 
+        <section id="result-screen" class="hidden">
+            <h2 id="result-heading"></h2>
+            <div class="result-box">
+                <p id="result-text"></p>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button id="restart-quiz-btn" class="action-button">Play Again</button>
+                <button id="view-membership-btn" class="action-button">Membership Card</button>
+            </div>
+        </section>
 
-<section id="question-screen" class="hidden">
-<div class="question-navigation-overlay">
-<div class="nav-arrow prev-arrow" id="prev-btn">&lt;</div>
-<div class="nav-arrow next-arrow" id="next-btn">&gt;</div>
-</div>
+        <section id="membership-screen" class="hidden">
+            <h2>ZEROSE Membership Card</h2>
+            <div class="result-box" id="membership-card-content" style="text-align: left;">
+                </div>
+            <button id="back-to-home-btn" class="action-button">Back to Home</button>
+        </section>
 
-<p class="quiz-question-text" id="quiz-question"></p>
-
-<div id="answers-container">
-</div>
-
-<div class="progress-bar-container">
-<div class="progress-bar" id="progress-bar"></div>
-<div id="progress-bar-placeholder"></div>
-</div>
-</section>
-
-<section id="result-screen" class="hidden">
-<h2 id="result-heading"></h2>
-<div class="result-box">
-<p id="result-text"></p>
-</div>
-<button id="restart-quiz-btn" class="action-button">
-Play Again
-</button>
-</section>
-
-</main>
+    </main>
 </div>
 
 <footer class="footer">
-<div id="bottom-info">
-<div id="contacts">
-<h4>Contact Us</h4>
-<h4>b2029syfsalvador@pshs.edu.ph</h4>
-<h4>b2029pyasantos@pshs.edu.ph</h4>
-</div>
-
-<div id="copyright">
-<p>© Ysabelle Salvador, Patricia Santos</p>
-</div>
-
-<div id="sources">
-<h4>Sources</h4>
-<h4>Binanacake. (2025, October 10). ZEROBASEONE (ZB1) Members Profile (Updated!) - KPop Profiles. Kpop Profiles. https://kprofiles.com/zerobaseone-members-profile/</h4>
-<h4>Social Media</h4>
-<h4>@zb1official</h4>
-</div>
-</div>
+    <div id="bottom-info">
+        <div id="contacts">
+            <h4>Contact Us</h4>
+            <h4>b2029syfsalvador@pshs.edu.ph</h4>
+            <h4>b2029pyasantos@pshs.edu.ph</h4>
+        </div>
+        <div id="copyright">
+            <p>© Ysabelle Salvador, Patricia Santos</p>
+        </div>
+        <div id="sources">
+            <h4>Sources</h4>
+            <h4>Binanacake. (2025, October 10). ZEROBASEONE (ZB1) Members Profile (Updated!) - KPop Profiles.</h4>
+            <h4>@zb1official</h4>
+        </div>
+    </div>
 </footer>
 </body>
 </html>
