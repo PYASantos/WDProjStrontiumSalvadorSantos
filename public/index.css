@@ -273,7 +273,7 @@
 /* CSS FOR FOOTER */
 #bottom-info {
     background: rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.5);  /* THICK VISIBLE WHITE LINE */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);  
     padding: 20px 30px;
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.85em;
@@ -283,7 +283,7 @@
     text-align: left;
     width: 100%;
     max-width: 95vw;
-    margin: 60px auto 0;  /* SPACE ABOVE + CENTERED */
+    margin: 60px auto 0;  
     font-family: monospace;
 }
 
@@ -291,7 +291,7 @@
     font-size: 1.1em;
     font-weight: normal;
     margin: 8px 0;
-    color: rgba(255, 255, 255, 1);  /* PURE WHITE HEADERS */
+    color: rgba(255, 255, 255, 1); 
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 

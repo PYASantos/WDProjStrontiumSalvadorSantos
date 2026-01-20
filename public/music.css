@@ -1,4 +1,4 @@
-
+/* GENERAL */
 * {
 box-sizing: border-box;
 margin: 0;
@@ -6,7 +6,6 @@ padding: 0;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* 1. Define your variables at the top */
 :root {
     --color-background-start: #c8edff;
     --color-background-end: #a6d8f1;
@@ -15,12 +14,10 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --color-dark-text: #ffffff;
 }
 
-/* 2. Remove .background-scroller from CSS and use this for body */
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    /* Use a fixed attachment so the background doesn't scroll with the content */
     background: linear-gradient(
         180deg, 
         var(--color-background-start) 0%, 
@@ -35,7 +32,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Sidebar */
+/* SIDEBAR */
 #sidebar-toggle {
 position: fixed;
 top: 20px;
@@ -43,7 +40,7 @@ left: 20px;
 width: 30px;
 height: 25px;
 cursor: pointer;
-z-index: 1001; /* Must be higher than the sidebar itself */
+z-index: 1001; 
 display: flex;
 flex-direction: column;
 justify-content: space-between;
@@ -75,7 +72,6 @@ opacity: 0;
 transform: translateY(-11px) rotate(-45deg);
 }
 
-/* SIDEBAR NAVIGATION */
 #sidebar {
 position: fixed;
 top: 0;
@@ -258,7 +254,7 @@ opacity: 1;
 text-decoration: none;
 cursor: pointer;
 }
-
+/*ALBUMS */
 #modal-album-image {
 width: 180px;
 height: 180px;
@@ -379,7 +375,7 @@ border-radius: 8px;
 line-height: 1.6;
 border: 1px solid #ddd;
 }
-
+/* FOOTER */
 .footer {
 background: rgba(255, 255, 255, 0.1);
 border-top: 1px solid rgba(255, 255, 255, 0.2);

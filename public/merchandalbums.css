@@ -29,7 +29,7 @@ background: linear-gradient(
     );
 min-height: 100vh;
 color: var(--color-text-light);
-padding-top: 100px; /* Space for fixed header */
+padding-top: 100px; 
 padding-bottom: 20px;
 overflow-x: hidden;
 }
