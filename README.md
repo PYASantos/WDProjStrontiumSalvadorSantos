@@ -1,5 +1,9 @@
 # **3rd Quarter Proposal**
 
+## ** One Sentence Description and Picture ** 
+ZB1 zone is a digital hub to give you a comprehensive look into ZB1. 
+![sr2021](https://i.pinimg.com/736x/dc/9a/26/dc9a26c86f525d781f8ef94b145ed3f6.jpg)
+
 ## **Final Title**
 ZB1 Zone: Your All-Access Pass to ZEROBASEONE
 
