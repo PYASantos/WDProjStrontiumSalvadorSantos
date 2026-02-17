@@ -295,7 +295,7 @@
     align-items: flex-start;
     text-align: left;
     width: 100%;
-    max-width: 95vw;
+    max-width: 100%;
     margin: 60px auto 0; 
     font-family: monospace;
 }
@@ -362,3 +362,7 @@ footer {
         font-size: 2.2em !important;
     }
 }
+html, body {
+    overflow-x: hidden;
+}
+
