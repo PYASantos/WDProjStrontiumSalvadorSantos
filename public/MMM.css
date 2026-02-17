@@ -334,27 +334,29 @@
 footer {
     display: none;
 }
-/* MOBILE STYLES */
+/* MOBILE STYLES - FIXED FOR BOTH ODD & EVEN */
 @media screen and (max-width: 768px) {
-    
-    /* 1. Force both odd and even profiles to stack vertically */
-    .member-profile:nth-child(odd),
-    .member-profile:nth-child(even) {
-        flex-direction: column; 
+    /* 1. Force ALL profiles to stack vertically & center */
+    .member-profile {
+        flex-direction: column !important;
         align-items: center;
+        padding: 15px;
+    }
+
+    /* 2. ALL images: center, smaller, bottom margin */
+    .member-profile img {
+        height: 220px;
+        width: 220px;
+        max-width: 90vw;
+        margin: 0 0 20px 0 !important; /* Override ALL side margins */
+    }
+
+    /* 3. Center ALL text */
+    .info-box {
         text-align: center;
-        padding: 20px;
+        width: 100%;
     }
 
-    /* 2. Reset the image margins for BOTH odd and even */
-    .member-profile:nth-child(odd) img,
-    .member-profile:nth-child(even) img {
-        margin: 0 0 20px 0; /* Removes the 25px side margins and adds bottom space */
-        max-width: 100%;    /* Ensures it stays inside the box on tiny phones */
-        height: auto;
-    }
-
-    /* 3. Center the detail text (Age, Role, etc.) */
     .info-box .member-description {
         justify-content: center;
     }
@@ -363,9 +365,21 @@ footer {
         margin: 0 10px 5px 10px;
     }
 
-    /* 4. Scale down the large header for mobile */
+    /* 4. Smaller fonts */
     h3 {
         font-size: 32px;
         margin-top: 110px;
+    }
+
+    .info-box h2 {
+        font-size: 2.2em;
+    }
+}
+
+/* EXTRA SMALL PHONES */
+@media screen and (max-width: 480px) {
+    .member-profile img {
+        height: 180px;
+        width: 180px;
     }
 }
