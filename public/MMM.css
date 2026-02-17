@@ -295,7 +295,7 @@
     align-items: flex-start;
     text-align: left;
     width: 100%;
-    max-width: 100%;
+    max-width: 95vw;
     margin: 60px auto 0; 
     font-family: monospace;
 }
@@ -361,8 +361,16 @@ footer {
     .info-box h2 {
         font-size: 2.2em !important;
     }
-}
-html, body {
-    overflow-x: hidden;
-}
+    #bottom-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+        gap: 10px;
+    }
 
+    #contacts, #sources, #copyright {
+        width: 100%;
+        padding: 5px 0;
+    }
+}
