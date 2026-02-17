@@ -334,16 +334,13 @@
 footer {
     display: none;
 }
-/* MOBILE STYLES - THIS WILL WORK */
 @media screen and (max-width: 768px) {
-    /* MOST IMPORTANT: GENERAL OVERRIDE FIRST */
     .member-profile {
         flex-direction: column !important;
         align-items: center !important;
         padding: 15px;
     }
     
-    /* ALL IMAGES - OVERRIDE EVERYTHING */
     .member-profile img {
         height: 200px !important;
         width: 200px !important;
@@ -351,13 +348,11 @@ footer {
         margin: 0 0 20px 0 !important;
     }
     
-    /* ALL TEXT CENTERING */
     .member-profile .info-box {
         text-align: center !important;
         width: 100%;
     }
     
-    /* Smaller fonts */
     h3 {
         font-size: 32px !important;
         margin-top: 110px !important;
