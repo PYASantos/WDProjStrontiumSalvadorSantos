@@ -334,47 +334,46 @@
 footer {
     display: none;
 }
-/* MOBILE STYLES - NO !IMPORTANT, CLEAN OVERRIDES */
+/* MOBILE STYLES */
 @media screen and (max-width: 768px) {
-    /* 1. GENERAL RULE FIRST - highest specificity */
-    .member-profile {
+    
+    /* Stack BOTH odd and even vertically */
+    .member-profile:nth-child(odd),
+    .member-profile:nth-child(even) {
         flex-direction: column;
         align-items: center;
-        padding: 15px;
-    }
-    
-    /* 2. ALL IMAGES - override margins */
-    .member-profile img {
-        height: 220px;
-        width: 220px;
-        max-width: 90vw;
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    
-    /* 3. ALL INFO BOXES */
-    .member-profile .info-box {
         text-align: center;
-        width: 100%;
+        padding: 20px;
     }
-    
-    /* 4. CENTER DETAIL ROW */
-    .member-profile .member-description {
+
+    /* Reset image margins for BOTH */
+    .member-profile:nth-child(odd) img,
+    .member-profile:nth-child(even) img {
+        margin: 0 0 20px 0;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Override the desktop justify text */
+    .member-profile:nth-child(odd) .info-box,
+    .member-profile:nth-child(even) .info-box {
+        text-align: center;
+    }
+
+    /* Center the detail row */
+    .member-profile:nth-child(odd) .member-description,
+    .member-profile:nth-child(even) .member-description {
         justify-content: center;
     }
-    
-    .member-detail {
+
+    .member-profile:nth-child(odd) .member-detail,
+    .member-profile:nth-child(even) .member-detail {
         margin: 0 10px 5px 10px;
     }
-    
-    /* 5. SMALLER TEXT */
+
+    /* Smaller header for phones */
     h3 {
         font-size: 32px;
         margin-top: 110px;
-    }
-    
-    .info-box h2 {
-        font-size: 2.2em;
     }
 }
