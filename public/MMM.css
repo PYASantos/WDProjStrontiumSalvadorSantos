@@ -334,63 +334,47 @@
 footer {
     display: none;
 }
-/* MOBILE STYLES */
+/* MOBILE STYLES - NO !IMPORTANT, CLEAN OVERRIDES */
 @media screen and (max-width: 768px) {
+    /* 1. GENERAL RULE FIRST - highest specificity */
+    .member-profile {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
     
-    /* Stack BOTH odd and even vertically */
-    .member-profile:nth-child(odd){
-        flex-direction: column;
-        align-items: center;
+    /* 2. ALL IMAGES - override margins */
+    .member-profile img {
+        height: 220px;
+        width: 220px;
+        max-width: 90vw;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    /* 3. ALL INFO BOXES */
+    .member-profile .info-box {
         text-align: center;
-        padding: 20px;
+        width: 100%;
     }
-    .member-profile:nth-child(even) {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    /* Reset image margins for BOTH */
-    .member-profile:nth-child(odd) img{
-        margin: 0 0 20px 0;
-        max-width: 100%;
-        height: auto;
-    }
-
-    .member-profile:nth-child(even) img {
-        margin: 0 0 20px 0;
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* Override the desktop justify text */
-    .member-profile:nth-child(odd) .info-box{
-        text-align: center;
-    }
-    .member-profile:nth-child(even) .info-box {
-        text-align: center;
-    }
-
-    /* Center the detail row */
-    .member-profile:nth-child(odd) .member-description{
+    
+    /* 4. CENTER DETAIL ROW */
+    .member-profile .member-description {
         justify-content: center;
     }
-    .member-profile:nth-child(even) .member-description {
-        justify-content: center;
-    }
-
-    .member-profile:nth-child(odd) .member-detail{
+    
+    .member-detail {
         margin: 0 10px 5px 10px;
     }
-    .member-profile:nth-child(even) .member-detail {
-        margin: 0 10px 5px 10px;
-    }
-
-    /* Smaller header for phones */
+    
+    /* 5. SMALLER TEXT */
     h3 {
         font-size: 32px;
         margin-top: 110px;
     }
+    
+    .info-box h2 {
+        font-size: 2.2em;
+    }
 }
-
