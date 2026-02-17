@@ -336,14 +336,14 @@ footer {
 }
 /* MOBILE STYLES - NO !IMPORTANT, CLEAN OVERRIDES */
 @media screen and (max-width: 768px) {
-    /* 1. GENERAL RULE FIRST - highest specificity */
+
     .member-profile {
         flex-direction: column;
         align-items: center;
         padding: 15px;
     }
-    
-    /* 2. ALL IMAGES - override margins */
+
+
     .member-profile img {
         height: 220px;
         width: 220px;
@@ -352,28 +352,27 @@ footer {
         margin-right: 0;
         margin-bottom: 20px;
     }
-    
-    /* 3. ALL INFO BOXES */
+
+
     .member-profile .info-box {
         text-align: center;
         width: 100%;
     }
-    
-    /* 4. CENTER DETAIL ROW */
+
+   
     .member-profile .member-description {
         justify-content: center;
     }
-    
+
     .member-detail {
         margin: 0 10px 5px 10px;
     }
-    
-    /* 5. SMALLER TEXT */
+
     h3 {
         font-size: 32px;
         margin-top: 110px;
     }
-    
+
     .info-box h2 {
         font-size: 2.2em;
     }
