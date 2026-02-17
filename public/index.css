@@ -215,7 +215,7 @@
         }
 
         #pages-section {
-            padding: 20px 0 60px;
+            padding: 20px 0 10px;
         }
 
         #pages {
@@ -274,7 +274,7 @@
 #bottom-info {
     background: rgba(255, 255, 255, 0.1);
     border-top: 1px solid rgba(255, 255, 255, 0.5);  
-    padding: 20px 30px;
+    padding: 10px 30px;
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.85em;
     display: flex;
