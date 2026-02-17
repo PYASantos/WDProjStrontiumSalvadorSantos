@@ -370,7 +370,6 @@ display: none;
 
     /* FOOTER - stack normally, NO FIXED */
     #bottom-info {
-        position: relative !important; /* <- important change */
         bottom: auto !important;
         left: auto !important;
         right: auto !important;
