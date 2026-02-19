@@ -334,6 +334,7 @@ color: rgba(255, 255, 255, 0.95);
 footer {
 display: none;
 }
+/* CSS FOR RESPONSIVENESS */
 @media screen and (max-width: 768px) {
     
     .member-profile, 

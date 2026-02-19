@@ -3,13 +3,13 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* FIXED HEADER - ADDED */
+/* HEADER */
 .main-header {
     display: flex;
-    flex-direction: row;           /* CHANGED: row instead of column */
-    justify-content: space-between; /* CHANGED: logo to right */
+    flex-direction: row;          
+    justify-content: space-between; 
     align-items: center;
-    padding: 15px 20px;             /* Adjusted padding */
+    padding: 15px 20px;             
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     font-weight: bold;
     color: white;
@@ -30,7 +30,7 @@
     background-color: rgba(0, 0, 0, 0.85); 
     z-index: 1000; 
     transition: left 0.3s ease; 
-    padding-top: 120px; /* Increased to account for fixed header */
+    padding-top: 120px;
 }
 
 #sidebar.active {
@@ -118,7 +118,7 @@
 body {
     text-align: center;
     margin: 0;
-    padding-top: 120px; /* Space for fixed header */
+    padding-top: 120px; 
     font-family: monospace;
     color: white;
 }
@@ -130,7 +130,7 @@ body {
     font-size: 20px; 
 }
 
-/* CSS FOR HEADER ELEMENTS - Updated for fixed header */
+/* CSS FOR HEADER ELEMENTS */
 .header-section {
     display: flex;
     justify-content: space-between;
@@ -196,7 +196,7 @@ p {
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Rest of your CSS remains exactly the same... */
+/* CSS FOR MEDIA ELEMENTS */
 #media {
     display: flex;
     align-items: center;
@@ -216,7 +216,6 @@ p {
     object-fit: cover; 
 }
 
-/* [All your video, pages, footer CSS stays exactly the same] */
 #videos-section > div {
     position: relative; 
     margin-bottom: 30px;
@@ -351,7 +350,7 @@ p {
     max-width: 100%;
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
-
+/* CSS FOR FOOTER ELEMENTS */
 #bottom-info {
     background: rgba(255, 255, 255, 0.1);
     border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -402,7 +401,7 @@ p {
 footer {
     display: none;
 }
-
+/* CSS FOR RESPONSIVENESS */
 @media (max-width: 1200px) {
     #pages {
         flex-wrap: wrap;
